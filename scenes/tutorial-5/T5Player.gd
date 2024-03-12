@@ -17,8 +17,11 @@ func get_input():
 	if Input.is_action_pressed('right'):
 		velocity.x += speed
 		animation = "jalan_kanan"
+		$AnimatedSprite.flip_h = false
 	if Input.is_action_pressed('left'):
 		velocity.x -= speed
+		animation = "jalan_kanan"
+		$AnimatedSprite.flip_h = true
 
 	if $AnimatedSprite.animation != animation:
 		$AnimatedSprite.play(animation)
@@ -27,3 +30,12 @@ func _physics_process(delta):
 	velocity.y += delta * GRAVITY
 	get_input()
 	velocity = move_and_slide(velocity, UP)
+	
+	var ded := false
+	for index in get_slide_count():
+		var collision := get_slide_collision(index)
+		var body := collision.collider
+		if body.name == "Player":
+			ded = true
+	if ded:
+		get_parent().remove_child(self)

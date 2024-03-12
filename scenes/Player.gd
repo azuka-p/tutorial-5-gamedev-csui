@@ -48,14 +48,14 @@ func get_input():
 	velocity.x = 0
 	dash_right()
 	dash_left()
-	if Input.is_action_just_pressed('up'):
+	if Input.is_action_just_pressed("up"):
 		jump()
 		$AnimatedSprite.play("jump")
-	if Input.is_action_pressed('right'):
+	if Input.is_action_pressed("left"):
 		velocity.x += speed
 		$AnimatedSprite.play("walk")
 		$AnimatedSprite.flip_h = false
-	if Input.is_action_pressed('left'):
+	if Input.is_action_pressed("right"):
 		velocity.x -= speed
 		$AnimatedSprite.play("walk")
 		$AnimatedSprite.flip_h = true
@@ -71,6 +71,15 @@ func _physics_process(delta):
 	velocity.y += delta * GRAVITY
 	
 	velocity = move_and_slide(velocity, UP)
+	
+	var bite := false
+	for index in get_slide_count():
+		var collision := get_slide_collision(index)
+		var body := collision.collider
+		if body.name == "T5Player":
+			bite = true
+	if bite:
+		$bite.play()
 	
 	if is_on_floor():
 		jump_count = 0

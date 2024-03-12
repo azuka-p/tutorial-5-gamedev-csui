@@ -32,3 +32,32 @@ berat, dan velocity.x /= 2 untuk mengurangi kecepatan movement.</p>
 - https://godotforums.org/d/20957-double-tap-press-to-dash-help
 - https://docs.godotengine.org/en/3.6/tutorials/2d/2d_sprite_animation.html
 - https://docs.godotengine.org/en/3.5/classes/class_animatedsprite.html
+
+### Latihan Mandiri: Membuat dan Menambah Variasi Aset
+
+#### Membuat minimal 1 (satu) objek baru di dalam permainan yang dilengkapi dengan animasi menggunakan spritesheet selain yang disediakan tutorial. Silakan cari spritesheet animasi di beberapa koleksi aset gratis seperti Kenney.
+<p>Menggunakan sprite zombie dari Tutorial 3 untuk objeknya lalu membuat animasinya dengan spritesheet.</p>
+
+#### Membuat minimal 1 (satu) audio untuk efek suara (SFX) dan memasukkannya ke dalam permainan. Kamu dapat membuatnya sendiri atau mencari dari koleksi aset gratis.
+<p>Menggunakan Bite dari RPG Essentials SFX untuk efek suara pada saat Player (Zombie) collide dengan T5Player.</p>
+
+#### Membuat minimal 1 (satu) musik latar (background music) dan memasukkannya ke dalam permainan. Kamu dapat membuatnya sendiri atau mencari dari koleksi aset gratis.
+<p>Menggunakan Battle1 dari Action RPG Music untuk sebagai musik latar.</p>
+
+#### Implementasikan interaksi antara objek baru tersebut dengan objek yang dikendalikan pemain. Misalnya, pemain dapat menciptakan atau menghilangkan objek baru tersebut ketika menekan suatu tombol atau tabrakan dengan objek lain di dunia permainan.
+<p>Pemain (T5Player) akan menghilang jika collide dengan Zombie (Player).</p>
+
+#### Implementasikan audio feedback dari interaksi antara objek baru dengan objek pemain. Misalnya, muncul efek suara ketika pemain tabrakan dengan objek baru.
+<p>Ketika Pemain (T5Player) collide dengan Zombie (Player), Zombie akan memutar efek suara Bite.</p>
+
+#### Implementasi sistem audio yang relatif terhadap posisi objek. Misalnya, musik latar akan semakin terdengar samar ketika pemain semakin jauh dari posisi awal level.
+<p>Node BGM dari latihan tutorial menggunakan AudioStreamPlayer2D dan diletakkan di bagian kiri stage. Jadi ketika pemain bergerak maka suaranya akan berubah.</p>
+
+#### Referensi:
+- https://csui-game-development.github.io/tutorials/tutorial-5/
+- https://docs.godotengine.org/en/3.5/classes/class_kinematicbody2d.html
+
+#### Asset:
+- https://www.kenney.nl/assets/platformer-pack-redux
+- https://escalonamusic.itch.io/action-rpg-music-free
+- https://leohpaz.itch.io/rpg-essentials-sfx-free
